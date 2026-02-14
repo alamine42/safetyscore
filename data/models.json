@@ -1,0 +1,137 @@
+{
+  "lastUpdated": "2025-01-15",
+  "models": [
+    {
+      "slug": "claude-3-5-sonnet",
+      "name": "Claude 3.5 Sonnet",
+      "provider": {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "logo": "/logos/anthropic.svg"
+      },
+      "releaseDate": "2024-06-20",
+      "parameterCount": null,
+      "overallScore": 88,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 91,
+        "fairness": 85,
+        "refusal_to_harm": 94,
+        "manipulation_resistance": 87,
+        "privacy_respect": 84,
+        "straight_talk": 89
+      },
+      "evaluatedDate": "2025-01-10"
+    },
+    {
+      "slug": "gpt-4o",
+      "name": "GPT-4o",
+      "provider": {
+        "name": "OpenAI",
+        "slug": "openai",
+        "logo": "/logos/openai.svg"
+      },
+      "releaseDate": "2024-05-13",
+      "parameterCount": null,
+      "overallScore": 85,
+      "overallGrade": "B",
+      "categoryScores": {
+        "honesty": 87,
+        "fairness": 83,
+        "refusal_to_harm": 90,
+        "manipulation_resistance": 84,
+        "privacy_respect": 81,
+        "straight_talk": 82
+      },
+      "evaluatedDate": "2025-01-10"
+    },
+    {
+      "slug": "gemini-1-5-pro",
+      "name": "Gemini 1.5 Pro",
+      "provider": {
+        "name": "Google",
+        "slug": "google",
+        "logo": "/logos/google.svg"
+      },
+      "releaseDate": "2024-02-15",
+      "parameterCount": null,
+      "overallScore": 82,
+      "overallGrade": "B-",
+      "categoryScores": {
+        "honesty": 84,
+        "fairness": 86,
+        "refusal_to_harm": 88,
+        "manipulation_resistance": 78,
+        "privacy_respect": 79,
+        "straight_talk": 77
+      },
+      "evaluatedDate": "2025-01-10"
+    },
+    {
+      "slug": "llama-3-1-405b",
+      "name": "Llama 3.1 405B",
+      "provider": {
+        "name": "Meta",
+        "slug": "meta",
+        "logo": "/logos/meta.svg"
+      },
+      "releaseDate": "2024-07-23",
+      "parameterCount": "405B",
+      "overallScore": 76,
+      "overallGrade": "C+",
+      "categoryScores": {
+        "honesty": 80,
+        "fairness": 74,
+        "refusal_to_harm": 72,
+        "manipulation_resistance": 79,
+        "privacy_respect": 71,
+        "straight_talk": 81
+      },
+      "evaluatedDate": "2025-01-10"
+    },
+    {
+      "slug": "mistral-large-2",
+      "name": "Mistral Large 2",
+      "provider": {
+        "name": "Mistral AI",
+        "slug": "mistral",
+        "logo": "/logos/mistral.svg"
+      },
+      "releaseDate": "2024-07-24",
+      "parameterCount": "123B",
+      "overallScore": 74,
+      "overallGrade": "C",
+      "categoryScores": {
+        "honesty": 78,
+        "fairness": 72,
+        "refusal_to_harm": 70,
+        "manipulation_resistance": 76,
+        "privacy_respect": 73,
+        "straight_talk": 75
+      },
+      "evaluatedDate": "2025-01-10"
+    },
+    {
+      "slug": "command-r-plus",
+      "name": "Command R+",
+      "provider": {
+        "name": "Cohere",
+        "slug": "cohere",
+        "logo": "/logos/cohere.svg"
+      },
+      "releaseDate": "2024-04-04",
+      "parameterCount": "104B",
+      "overallScore": 78,
+      "overallGrade": "C+",
+      "categoryScores": {
+        "honesty": 82,
+        "fairness": 80,
+        "refusal_to_harm": 75,
+        "manipulation_resistance": 77,
+        "privacy_respect": 76,
+        "straight_talk": 78
+      },
+      "evaluatedDate": "2025-01-10"
+    }
+  ]
+}

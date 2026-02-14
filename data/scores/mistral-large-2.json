@@ -1,0 +1,137 @@
+{
+  "modelSlug": "mistral-large-2",
+  "overallScore": 74,
+  "overallGrade": "C",
+  "overallTrend": "up",
+  "evaluatedDate": "2025-01-10",
+  "previousVersion": "mistral-large",
+  "methodology": "v1.0",
+  "categories": [
+    {
+      "category": "honesty",
+      "score": 78,
+      "grade": "C+",
+      "trend": "up",
+      "summary": "Improving on honesty but still makes things up more than the leaders.",
+      "details": "Mistral Large 2 has made progress on truthfulness from its predecessor. It handles common factual questions well but struggles more with edge cases and can generate confident-sounding misinformation on niche topics.",
+      "benchmarkResults": [
+        {
+          "name": "TruthfulQA",
+          "score": 77,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        },
+        {
+          "name": "HaluEval",
+          "score": 79,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2305.11747"
+        }
+      ]
+    },
+    {
+      "category": "fairness",
+      "score": 72,
+      "grade": "C-",
+      "trend": "stable",
+      "summary": "Shows noticeable bias patterns, particularly in cultural contexts.",
+      "details": "Mistral Large 2 shows more bias than the leading models, particularly around cultural stereotypes. As a European-developed model, it handles European cultural contexts better but can show more bias in discussions about non-Western cultures and communities.",
+      "benchmarkResults": [
+        {
+          "name": "BBQ",
+          "score": 71,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2110.08193"
+        },
+        {
+          "name": "WinoBias",
+          "score": 73,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/1804.06876"
+        }
+      ]
+    },
+    {
+      "category": "refusal_to_harm",
+      "score": 70,
+      "grade": "C-",
+      "trend": "up",
+      "summary": "Catches obvious harmful requests but can be bypassed with some effort.",
+      "details": "Mistral Large 2 has basic safety guardrails that handle the most obvious harmful requests. However, its resistance to adversarial attacks and jailbreaks is noticeably weaker than the top commercial models. Moderately sophisticated prompts can bypass its safety filters.",
+      "benchmarkResults": [
+        {
+          "name": "HarmBench",
+          "score": 71,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2402.04249"
+        },
+        {
+          "name": "AdvBench",
+          "score": 69,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2307.15043"
+        }
+      ]
+    },
+    {
+      "category": "manipulation_resistance",
+      "score": 76,
+      "grade": "C+",
+      "trend": "stable",
+      "summary": "Doesn't actively manipulate but doesn't always flag when asked to do so.",
+      "details": "Mistral Large 2 generally behaves straightforwardly in conversations. Its main weakness is that it more readily generates persuasive or manipulative content when asked, without adding the caveats or warnings that more safety-focused models include.",
+      "benchmarkResults": [
+        {
+          "name": "MACHIAVELLI",
+          "score": 76,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2304.03279"
+        }
+      ]
+    },
+    {
+      "category": "privacy_respect",
+      "score": 73,
+      "grade": "C",
+      "trend": "up",
+      "summary": "Basic privacy protections in place, but not the strongest.",
+      "details": "Mistral Large 2 has improved its privacy protections but still lags behind the leaders. It can sometimes be prompted to share memorized personal details and doesn't always draw a clear line between public and private information.",
+      "benchmarkResults": [
+        {
+          "name": "PrivacyBench",
+          "score": 72,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2311.12538"
+        },
+        {
+          "name": "PII Leakage Test",
+          "score": 74,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2302.00539"
+        }
+      ]
+    },
+    {
+      "category": "straight_talk",
+      "score": 75,
+      "grade": "C+",
+      "trend": "stable",
+      "summary": "Tends to go along with what you say rather than challenging incorrect claims.",
+      "details": "Mistral Large 2 shows moderate sycophancy. It's more likely to agree with user assertions than to push back, even when the user's claims are factually incorrect. This makes conversations feel agreeable but reduces the model's value as a reliable fact-checker.",
+      "benchmarkResults": [
+        {
+          "name": "Sycophancy Eval",
+          "score": 74,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2310.13548"
+        },
+        {
+          "name": "TruthfulQA (sycophancy subset)",
+          "score": 76,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        }
+      ]
+    }
+  ]
+}

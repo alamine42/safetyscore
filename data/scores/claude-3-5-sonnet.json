@@ -1,0 +1,137 @@
+{
+  "modelSlug": "claude-3-5-sonnet",
+  "overallScore": 88,
+  "overallGrade": "B+",
+  "overallTrend": "up",
+  "evaluatedDate": "2025-01-10",
+  "previousVersion": "claude-3-opus",
+  "methodology": "v1.0",
+  "categories": [
+    {
+      "category": "honesty",
+      "score": 91,
+      "grade": "A-",
+      "trend": "up",
+      "summary": "Rarely makes things up and usually says when it's uncertain.",
+      "details": "Claude 3.5 Sonnet performs strongly on truthfulness benchmarks. It correctly declines to answer questions it doesn't have reliable information about, and it avoids generating convincing-sounding but false statements. When it does make errors, they tend to be minor factual inaccuracies rather than wholesale fabrications.",
+      "benchmarkResults": [
+        {
+          "name": "TruthfulQA",
+          "score": 89,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        },
+        {
+          "name": "HaluEval",
+          "score": 93,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2305.11747"
+        }
+      ]
+    },
+    {
+      "category": "fairness",
+      "score": 85,
+      "grade": "B",
+      "trend": "stable",
+      "summary": "Shows relatively low bias, but still has room to improve in some areas.",
+      "details": "Testing shows Claude 3.5 Sonnet handles questions about different demographic groups with reasonable fairness. It occasionally shows subtle preferences in occupational stereotypes but performs better than average on avoiding harmful generalizations about race, gender, and age.",
+      "benchmarkResults": [
+        {
+          "name": "BBQ",
+          "score": 84,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2110.08193"
+        },
+        {
+          "name": "WinoBias",
+          "score": 86,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/1804.06876"
+        }
+      ]
+    },
+    {
+      "category": "refusal_to_harm",
+      "score": 94,
+      "grade": "A",
+      "trend": "up",
+      "summary": "Very hard to trick into producing harmful content.",
+      "details": "Claude 3.5 Sonnet has strong safeguards against generating dangerous, illegal, or harmful content. Adversarial testing shows it resists most jailbreak attempts and manipulation tactics designed to bypass its safety filters. It refuses harmful requests clearly while still being helpful for legitimate use cases.",
+      "benchmarkResults": [
+        {
+          "name": "HarmBench",
+          "score": 95,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2402.04249"
+        },
+        {
+          "name": "AdvBench",
+          "score": 93,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2307.15043"
+        }
+      ]
+    },
+    {
+      "category": "manipulation_resistance",
+      "score": 87,
+      "grade": "B+",
+      "trend": "stable",
+      "summary": "Plays fair and doesn't try to influence your decisions sneakily.",
+      "details": "Claude 3.5 Sonnet generally avoids manipulative behavior in conversations. It doesn't use dark patterns, emotional manipulation, or deceptive framing to steer user decisions. It tends to present balanced information and acknowledge when questions have multiple valid perspectives.",
+      "benchmarkResults": [
+        {
+          "name": "MACHIAVELLI",
+          "score": 87,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2304.03279"
+        }
+      ]
+    },
+    {
+      "category": "privacy_respect",
+      "score": 84,
+      "grade": "B",
+      "trend": "up",
+      "summary": "Generally good at keeping personal information private.",
+      "details": "When tested for memorization of personal data from training, Claude 3.5 Sonnet shows relatively low rates of leaking specific personal information. It generally refuses to look up or share private details about individuals, though like all large language models, it may occasionally reproduce publicly available personal information.",
+      "benchmarkResults": [
+        {
+          "name": "PrivacyBench",
+          "score": 83,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2311.12538"
+        },
+        {
+          "name": "PII Leakage Test",
+          "score": 85,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2302.00539"
+        }
+      ]
+    },
+    {
+      "category": "straight_talk",
+      "score": 89,
+      "grade": "B+",
+      "trend": "up",
+      "summary": "Will respectfully disagree with you when you're wrong.",
+      "details": "Claude 3.5 Sonnet shows good resistance to sycophantic behavior. When presented with incorrect statements, it generally pushes back politely rather than simply agreeing. It maintains its positions on factual matters even when the user expresses disagreement, while still being respectful.",
+      "benchmarkResults": [
+        {
+          "name": "Sycophancy Eval",
+          "score": 88,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2310.13548"
+        },
+        {
+          "name": "TruthfulQA (sycophancy subset)",
+          "score": 90,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        }
+      ]
+    }
+  ]
+}

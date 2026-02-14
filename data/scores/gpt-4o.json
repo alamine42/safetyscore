@@ -1,0 +1,137 @@
+{
+  "modelSlug": "gpt-4o",
+  "overallScore": 85,
+  "overallGrade": "B",
+  "overallTrend": "up",
+  "evaluatedDate": "2025-01-10",
+  "previousVersion": "gpt-4-turbo",
+  "methodology": "v1.0",
+  "categories": [
+    {
+      "category": "honesty",
+      "score": 87,
+      "grade": "B+",
+      "trend": "up",
+      "summary": "Pretty honest overall, but occasionally confident about things it shouldn't be.",
+      "details": "GPT-4o shows strong truthfulness on most benchmarks. It performs well at identifying questions it shouldn't answer with confidence. However, it can sometimes present uncertain information with too much confidence, particularly on recent events or niche topics.",
+      "benchmarkResults": [
+        {
+          "name": "TruthfulQA",
+          "score": 86,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        },
+        {
+          "name": "HaluEval",
+          "score": 88,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2305.11747"
+        }
+      ]
+    },
+    {
+      "category": "fairness",
+      "score": 83,
+      "grade": "B",
+      "trend": "stable",
+      "summary": "Handles most bias tests well but shows some stereotypical patterns.",
+      "details": "GPT-4o demonstrates reasonable fairness across demographic groups. It has improved from previous versions in handling sensitive topics around race and gender, but still shows measurable bias in some occupational and cultural stereotype tests.",
+      "benchmarkResults": [
+        {
+          "name": "BBQ",
+          "score": 82,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2110.08193"
+        },
+        {
+          "name": "WinoBias",
+          "score": 84,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/1804.06876"
+        }
+      ]
+    },
+    {
+      "category": "refusal_to_harm",
+      "score": 90,
+      "grade": "A-",
+      "trend": "up",
+      "summary": "Strong at refusing harmful requests, with some known bypass methods.",
+      "details": "GPT-4o has robust safety filters that catch most attempts to generate harmful content. It handles direct requests for dangerous information well and refuses clearly. Some advanced jailbreak techniques can still occasionally bypass protections, but the overall refusal rate is high.",
+      "benchmarkResults": [
+        {
+          "name": "HarmBench",
+          "score": 91,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2402.04249"
+        },
+        {
+          "name": "AdvBench",
+          "score": 89,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2307.15043"
+        }
+      ]
+    },
+    {
+      "category": "manipulation_resistance",
+      "score": 84,
+      "grade": "B",
+      "trend": "stable",
+      "summary": "Generally straightforward, though it can be overly persuasive at times.",
+      "details": "GPT-4o mostly avoids manipulative behaviors in conversation. However, when asked to argue for a position or help with persuasion tasks, it can generate content that uses psychological influence techniques without always flagging that it's doing so.",
+      "benchmarkResults": [
+        {
+          "name": "MACHIAVELLI",
+          "score": 84,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2304.03279"
+        }
+      ]
+    },
+    {
+      "category": "privacy_respect",
+      "score": 81,
+      "grade": "B-",
+      "trend": "stable",
+      "summary": "Decent at protecting privacy, but occasionally shares too much about public figures.",
+      "details": "GPT-4o generally refuses to share private personal information. It draws a reasonable line between public and private information, though it can sometimes be coaxed into sharing more details about public figures' personal lives than necessary.",
+      "benchmarkResults": [
+        {
+          "name": "PrivacyBench",
+          "score": 80,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2311.12538"
+        },
+        {
+          "name": "PII Leakage Test",
+          "score": 82,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2302.00539"
+        }
+      ]
+    },
+    {
+      "category": "straight_talk",
+      "score": 82,
+      "grade": "B-",
+      "trend": "down",
+      "summary": "Sometimes agrees with you too easily when it should push back.",
+      "details": "GPT-4o shows moderate sycophancy tendencies. When users express strong opinions, it can sometimes shift its position to align with the user rather than maintaining its own assessment. This is an area where performance has slightly decreased from previous versions.",
+      "benchmarkResults": [
+        {
+          "name": "Sycophancy Eval",
+          "score": 81,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2310.13548"
+        },
+        {
+          "name": "TruthfulQA (sycophancy subset)",
+          "score": 83,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        }
+      ]
+    }
+  ]
+}

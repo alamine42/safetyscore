@@ -1,0 +1,137 @@
+{
+  "modelSlug": "llama-3-1-405b",
+  "overallScore": 76,
+  "overallGrade": "C+",
+  "overallTrend": "up",
+  "evaluatedDate": "2025-01-10",
+  "previousVersion": "llama-3-70b",
+  "methodology": "v1.0",
+  "categories": [
+    {
+      "category": "honesty",
+      "score": 80,
+      "grade": "B-",
+      "trend": "up",
+      "summary": "Decent honesty, but hallucinates more than the top closed-source models.",
+      "details": "Llama 3.1 405B has improved significantly over its predecessors in truthfulness. It handles most factual questions reasonably well but generates fabricated details more frequently than leading closed-source models, especially for less common topics.",
+      "benchmarkResults": [
+        {
+          "name": "TruthfulQA",
+          "score": 79,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        },
+        {
+          "name": "HaluEval",
+          "score": 81,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2305.11747"
+        }
+      ]
+    },
+    {
+      "category": "fairness",
+      "score": 74,
+      "grade": "C",
+      "trend": "up",
+      "summary": "Shows measurable bias in some areas, especially around gender stereotypes.",
+      "details": "As an open-source model, Llama 3.1 405B has undergone safety training but shows more residual bias than heavily-tuned closed-source alternatives. Gender and occupational stereotypes are the most noticeable gaps, though it handles racial bias tests reasonably.",
+      "benchmarkResults": [
+        {
+          "name": "BBQ",
+          "score": 73,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2110.08193"
+        },
+        {
+          "name": "WinoBias",
+          "score": 75,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/1804.06876"
+        }
+      ]
+    },
+    {
+      "category": "refusal_to_harm",
+      "score": 72,
+      "grade": "C-",
+      "trend": "up",
+      "summary": "Refuses many harmful requests but is easier to bypass than closed-source models.",
+      "details": "Llama 3.1 405B has safety training but its open-source nature means safety filters can be removed by users who run it themselves. Even with default safety settings, it's more susceptible to adversarial prompts than the most locked-down commercial models.",
+      "benchmarkResults": [
+        {
+          "name": "HarmBench",
+          "score": 73,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2402.04249"
+        },
+        {
+          "name": "AdvBench",
+          "score": 71,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2307.15043"
+        }
+      ]
+    },
+    {
+      "category": "manipulation_resistance",
+      "score": 79,
+      "grade": "C+",
+      "trend": "stable",
+      "summary": "Generally straightforward but can be steered into manipulative outputs.",
+      "details": "Llama 3.1 405B doesn't proactively manipulate users but can be more easily directed to produce manipulative content when asked. Its guardrails around persuasion and influence are less robust than heavily safety-trained commercial models.",
+      "benchmarkResults": [
+        {
+          "name": "MACHIAVELLI",
+          "score": 79,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2304.03279"
+        }
+      ]
+    },
+    {
+      "category": "privacy_respect",
+      "score": 71,
+      "grade": "C-",
+      "trend": "stable",
+      "summary": "Weaker privacy protections — can sometimes be coaxed into sharing personal data.",
+      "details": "Llama 3.1 405B has basic privacy protections but is more likely to reproduce memorized personal information from training data when prompted in certain ways. Its refusal to share private information is less consistent than commercial alternatives.",
+      "benchmarkResults": [
+        {
+          "name": "PrivacyBench",
+          "score": 70,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2311.12538"
+        },
+        {
+          "name": "PII Leakage Test",
+          "score": 72,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2302.00539"
+        }
+      ]
+    },
+    {
+      "category": "straight_talk",
+      "score": 81,
+      "grade": "B-",
+      "trend": "up",
+      "summary": "Actually pretty good at pushing back — less of a people-pleaser.",
+      "details": "Interestingly, Llama 3.1 405B shows relatively low sycophancy compared to some commercial models. It's more willing to maintain its position when users disagree, possibly because it has less specific training focused on user satisfaction over accuracy.",
+      "benchmarkResults": [
+        {
+          "name": "Sycophancy Eval",
+          "score": 80,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2310.13548"
+        },
+        {
+          "name": "TruthfulQA (sycophancy subset)",
+          "score": 82,
+          "maxScore": 100,
+          "source": "https://arxiv.org/abs/2109.07958"
+        }
+      ]
+    }
+  ]
+}
