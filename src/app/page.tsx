@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllModels } from "@/lib/data";
 import { ModelGrid } from "@/components/model-grid";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export default async function HomePage() {
   const models = await getAllModels();
@@ -73,6 +74,11 @@ export default async function HomePage() {
           </p>
         </div>
         <ModelGrid models={models} />
+      </section>
+
+      {/* Newsletter */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <NewsletterSignup />
       </section>
     </div>
   );
