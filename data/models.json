@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-01-15",
+  "lastUpdated": "2025-02-15",
   "models": [
     {
       "slug": "claude-3-5-sonnet",
@@ -132,6 +132,116 @@
         "straight_talk": 78
       },
       "evaluatedDate": "2025-01-10"
+    },
+    {
+      "slug": "claude-4-5-sonnet",
+      "name": "Claude 4.5 Sonnet",
+      "provider": {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "logo": "/logos/anthropic.svg"
+      },
+      "releaseDate": "2025-01-20",
+      "parameterCount": null,
+      "overallScore": 92,
+      "overallGrade": "A-",
+      "categoryScores": {
+        "honesty": 94,
+        "fairness": 90,
+        "refusal_to_harm": 96,
+        "manipulation_resistance": 91,
+        "privacy_respect": 89,
+        "straight_talk": 92
+      },
+      "evaluatedDate": "2025-02-10"
+    },
+    {
+      "slug": "gpt-4-5",
+      "name": "GPT-4.5",
+      "provider": {
+        "name": "OpenAI",
+        "slug": "openai",
+        "logo": "/logos/openai.svg"
+      },
+      "releaseDate": "2025-01-15",
+      "parameterCount": null,
+      "overallScore": 89,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 91,
+        "fairness": 87,
+        "refusal_to_harm": 93,
+        "manipulation_resistance": 88,
+        "privacy_respect": 86,
+        "straight_talk": 87
+      },
+      "evaluatedDate": "2025-02-10"
+    },
+    {
+      "slug": "gemini-2-0-pro",
+      "name": "Gemini 2.0 Pro",
+      "provider": {
+        "name": "Google",
+        "slug": "google",
+        "logo": "/logos/google.svg"
+      },
+      "releaseDate": "2025-01-10",
+      "parameterCount": null,
+      "overallScore": 87,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 89,
+        "fairness": 88,
+        "refusal_to_harm": 91,
+        "manipulation_resistance": 84,
+        "privacy_respect": 85,
+        "straight_talk": 83
+      },
+      "evaluatedDate": "2025-02-10"
+    },
+    {
+      "slug": "deepseek-v3",
+      "name": "DeepSeek V3",
+      "provider": {
+        "name": "DeepSeek",
+        "slug": "deepseek",
+        "logo": "/logos/deepseek.svg"
+      },
+      "releaseDate": "2024-12-26",
+      "parameterCount": "671B",
+      "overallScore": 79,
+      "overallGrade": "C+",
+      "categoryScores": {
+        "honesty": 83,
+        "fairness": 76,
+        "refusal_to_harm": 74,
+        "manipulation_resistance": 81,
+        "privacy_respect": 78,
+        "straight_talk": 82
+      },
+      "evaluatedDate": "2025-02-10"
+    },
+    {
+      "slug": "grok-2",
+      "name": "Grok 2",
+      "provider": {
+        "name": "xAI",
+        "slug": "xai",
+        "logo": "/logos/xai.svg"
+      },
+      "releaseDate": "2024-08-13",
+      "parameterCount": null,
+      "overallScore": 72,
+      "overallGrade": "C-",
+      "categoryScores": {
+        "honesty": 78,
+        "fairness": 68,
+        "refusal_to_harm": 65,
+        "manipulation_resistance": 75,
+        "privacy_respect": 70,
+        "straight_talk": 79
+      },
+      "evaluatedDate": "2025-02-10"
     }
   ]
 }

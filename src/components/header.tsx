@@ -51,6 +51,18 @@ export function Header() {
             Home
           </Link>
           <Link
+            href="/compare"
+            className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+          >
+            Compare
+          </Link>
+          <Link
+            href="/quiz"
+            className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+          >
+            Quiz
+          </Link>
+          <Link
             href="/about"
             className="text-sm font-medium text-muted transition-colors hover:text-foreground"
           >

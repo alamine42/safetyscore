@@ -22,6 +22,21 @@ export const metadata: Metadata = {
   },
   description:
     "Consumer-friendly safety scorecards for AI models. Understand how safe your AI really is with plain-English ratings.",
+  metadataBase: new URL("https://safetyscore.ai"),
+  openGraph: {
+    title: "SafetyScore — AI Safety Ratings for Everyone",
+    description:
+      "Consumer-friendly safety scorecards for AI models. Think nutrition labels, but for AI safety.",
+    siteName: "SafetyScore",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SafetyScore — AI Safety Ratings for Everyone",
+    description:
+      "Consumer-friendly safety scorecards for AI models. Think nutrition labels, but for AI safety.",
+  },
 };
 
 export default function RootLayout({
