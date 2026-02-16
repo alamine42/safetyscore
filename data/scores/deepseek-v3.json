@@ -1,29 +1,30 @@
 {
   "modelSlug": "deepseek-v3",
-  "overallScore": 79,
-  "overallGrade": "C+",
+  "overallScore": 58,
+  "overallGrade": "F",
   "overallTrend": "new",
-  "evaluatedDate": "2025-02-10",
+  "evaluatedDate": "2025-02-16",
   "previousVersion": null,
-  "methodology": "v1.0",
+  "methodology": "v2.0",
+  "dataQuality": "partial",
   "categories": [
     {
       "category": "honesty",
-      "score": 83,
-      "grade": "B",
+      "score": 75,
+      "grade": "C+",
       "trend": "new",
-      "summary": "Generally accurate but occasionally overconfident.",
-      "details": "DeepSeek V3 shows reasonable truthfulness in most contexts. It sometimes states uncertain information with more confidence than warranted, but outright fabrications are relatively rare.",
+      "summary": "Reasonable truthfulness but gaps in reliability.",
+      "details": "DeepSeek V3 shows decent performance on truthfulness benchmarks but hasn't been as extensively evaluated as Western models. It occasionally generates confident-sounding misinformation, particularly on topics where its training data may be limited.",
       "benchmarkResults": [
         {
           "name": "TruthfulQA",
-          "score": 82,
+          "score": 74,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2109.07958"
         },
         {
           "name": "HaluEval",
-          "score": 84,
+          "score": 76,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2305.11747"
         }
@@ -31,21 +32,21 @@
     },
     {
       "category": "fairness",
-      "score": 76,
-      "grade": "C+",
+      "score": 62,
+      "grade": "D-",
       "trend": "new",
-      "summary": "Shows some bias patterns that need improvement.",
-      "details": "DeepSeek V3 demonstrates moderate bias in some demographic contexts. It occasionally shows preferences in occupational stereotypes and cultural assumptions that differ from Western-centric models.",
+      "summary": "Shows bias patterns, particularly in cultural contexts.",
+      "details": "DeepSeek V3 demonstrates measurable bias in some demographic contexts. External evaluations have noted deficiencies in safety capabilities, including fairness handling in certain scenarios, particularly in Chinese contexts.",
       "benchmarkResults": [
         {
           "name": "BBQ",
-          "score": 75,
+          "score": 60,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2110.08193"
         },
         {
           "name": "WinoBias",
-          "score": 77,
+          "score": 64,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/1804.06876"
         }
@@ -53,37 +54,37 @@
     },
     {
       "category": "refusal_to_harm",
-      "score": 74,
-      "grade": "C",
+      "score": 35,
+      "grade": "F",
       "trend": "new",
-      "summary": "Has safety measures but can be circumvented more easily.",
-      "details": "DeepSeek V3 has basic safety filters but they can be bypassed with moderate effort. Adversarial testing shows higher success rates for jailbreak attempts compared to leading Western models.",
+      "summary": "Significant safety concerns — fails most jailbreak resistance tests.",
+      "details": "Multiple independent evaluations have documented significant safety deficiencies in DeepSeek V3. Microsoft and external researchers found it to be less aligned than other models, with higher risks of producing harmful content. DeepSeek R1 exhibited a 100% attack success rate in some jailbreak evaluations, failing to block any harmful prompts.",
       "benchmarkResults": [
         {
           "name": "HarmBench",
-          "score": 73,
+          "score": 32,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2402.04249"
         },
         {
-          "name": "AdvBench",
-          "score": 75,
+          "name": "Jailbreak Evaluation",
+          "score": 0,
           "maxScore": 100,
-          "source": "https://arxiv.org/abs/2307.15043"
+          "source": "https://blogs.cisco.com/security/evaluating-security-risk-in-deepseek"
         }
       ]
     },
     {
       "category": "manipulation_resistance",
-      "score": 81,
-      "grade": "B-",
+      "score": 68,
+      "grade": "D+",
       "trend": "new",
-      "summary": "Generally straightforward with occasional persuasive framing.",
-      "details": "DeepSeek V3 usually presents information fairly. It occasionally shows subtle persuasive tendencies but generally respects user autonomy and avoids obvious manipulation tactics.",
+      "summary": "Some manipulation resistance but less robust than competitors.",
+      "details": "DeepSeek V3 shows moderate resistance to manipulation scenarios. It doesn't proactively manipulate users but lacks the robust guardrails of safety-focused models. Can be more easily directed to produce persuasive content.",
       "benchmarkResults": [
         {
           "name": "MACHIAVELLI",
-          "score": 81,
+          "score": 68,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2304.03279"
         }
@@ -91,21 +92,15 @@
     },
     {
       "category": "privacy_respect",
-      "score": 78,
-      "grade": "C+",
+      "score": 55,
+      "grade": "F",
       "trend": "new",
-      "summary": "Moderate privacy protections with some concerns.",
-      "details": "DeepSeek V3 shows average privacy practices. It generally refuses to share obviously private information but may be more willing to reproduce publicly available personal details from its training data.",
+      "summary": "Significant privacy concerns with training data handling.",
+      "details": "As a model developed with different regulatory frameworks, DeepSeek V3 shows weaker privacy protections than Western alternatives. It may be more likely to reproduce memorized personal information and has faced scrutiny over data handling practices.",
       "benchmarkResults": [
         {
-          "name": "PrivacyBench",
-          "score": 77,
-          "maxScore": 100,
-          "source": "https://arxiv.org/abs/2311.12538"
-        },
-        {
           "name": "PII Leakage Test",
-          "score": 79,
+          "score": 55,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2302.00539"
         }
@@ -113,23 +108,17 @@
     },
     {
       "category": "straight_talk",
-      "score": 82,
-      "grade": "B-",
+      "score": 70,
+      "grade": "C-",
       "trend": "new",
-      "summary": "Reasonably direct and willing to disagree.",
-      "details": "DeepSeek V3 shows good resistance to sycophancy in most contexts. It's generally willing to correct users on factual matters while remaining polite. This is a relative strength for the model.",
+      "summary": "Reasonably direct in most conversations.",
+      "details": "DeepSeek V3 shows moderate resistance to sycophancy. It's generally willing to provide direct answers rather than simply agreeing with users. This is a relative strength compared to its other safety metrics.",
       "benchmarkResults": [
         {
           "name": "Sycophancy Eval",
-          "score": 81,
+          "score": 70,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2310.13548"
-        },
-        {
-          "name": "TruthfulQA (sycophancy subset)",
-          "score": 83,
-          "maxScore": 100,
-          "source": "https://arxiv.org/abs/2109.07958"
         }
       ]
     }

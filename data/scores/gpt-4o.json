@@ -1,29 +1,30 @@
 {
   "modelSlug": "gpt-4o",
-  "overallScore": 85,
+  "overallScore": 84,
   "overallGrade": "B",
-  "overallTrend": "up",
-  "evaluatedDate": "2025-01-10",
+  "overallTrend": "stable",
+  "evaluatedDate": "2025-02-16",
   "previousVersion": "gpt-4-turbo",
-  "methodology": "v1.0",
+  "methodology": "v2.0",
+  "dataQuality": "verified",
   "categories": [
     {
       "category": "honesty",
-      "score": 87,
-      "grade": "B+",
+      "score": 81,
+      "grade": "B-",
       "trend": "up",
-      "summary": "Pretty honest overall, but occasionally confident about things it shouldn't be.",
-      "details": "GPT-4o shows strong truthfulness on most benchmarks. It performs well at identifying questions it shouldn't answer with confidence. However, it can sometimes present uncertain information with too much confidence, particularly on recent events or niche topics.",
+      "summary": "Good truthfulness, with documented benchmark scores.",
+      "details": "GPT-4o achieves 81.4% accuracy on TruthfulQA in English according to OpenAI's system card. The model shows improved multilingual truthfulness compared to GPT-3.5 Turbo, narrowing the gap between English and other languages.",
       "benchmarkResults": [
         {
           "name": "TruthfulQA",
-          "score": 86,
+          "score": 81,
           "maxScore": 100,
-          "source": "https://arxiv.org/abs/2109.07958"
+          "source": "https://cdn.openai.com/gpt-4o-system-card.pdf"
         },
         {
           "name": "HaluEval",
-          "score": 88,
+          "score": 82,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2305.11747"
         }
@@ -31,21 +32,21 @@
     },
     {
       "category": "fairness",
-      "score": 83,
-      "grade": "B",
-      "trend": "stable",
-      "summary": "Handles most bias tests well but shows some stereotypical patterns.",
-      "details": "GPT-4o demonstrates reasonable fairness across demographic groups. It has improved from previous versions in handling sensitive topics around race and gender, but still shows measurable bias in some occupational and cultural stereotype tests.",
+      "score": 96,
+      "grade": "A",
+      "trend": "up",
+      "summary": "Excellent bias mitigation with industry-leading BBQ scores.",
+      "details": "GPT-4 achieved 97% accuracy on BBQ with a bias score of only 0.006, among the lowest measured. This indicates strong performance in avoiding harmful generalizations based on race, gender, age, and other protected characteristics.",
       "benchmarkResults": [
         {
           "name": "BBQ",
-          "score": 82,
+          "score": 97,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2110.08193"
         },
         {
           "name": "WinoBias",
-          "score": 84,
+          "score": 94,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/1804.06876"
         }
@@ -53,37 +54,37 @@
     },
     {
       "category": "refusal_to_harm",
-      "score": 90,
-      "grade": "A-",
-      "trend": "up",
-      "summary": "Strong at refusing harmful requests, with some known bypass methods.",
-      "details": "GPT-4o has robust safety filters that catch most attempts to generate harmful content. It handles direct requests for dangerous information well and refuses clearly. Some advanced jailbreak techniques can still occasionally bypass protections, but the overall refusal rate is high.",
+      "score": 83,
+      "grade": "B",
+      "trend": "stable",
+      "summary": "Good but not industry-leading safety under adversarial testing.",
+      "details": "GPT-4o achieves 82.9% refusal rate on HarmBench in standard conditions, but drops to 62.2% under adversarial attacks (GCG-T). While still passing most safety evaluations, it shows more vulnerability to jailbreaking than top-tier safety models. OpenAI reports 100% safety on sexual content involving minors and self-harm instructions.",
       "benchmarkResults": [
         {
           "name": "HarmBench",
-          "score": 91,
+          "score": 83,
           "maxScore": 100,
-          "source": "https://arxiv.org/abs/2402.04249"
+          "source": "https://crfm.stanford.edu/helm-safety"
         },
         {
-          "name": "AdvBench",
-          "score": 89,
+          "name": "HarmBench (Adversarial)",
+          "score": 62,
           "maxScore": 100,
-          "source": "https://arxiv.org/abs/2307.15043"
+          "source": "https://crfm.stanford.edu/helm-safety"
         }
       ]
     },
     {
       "category": "manipulation_resistance",
-      "score": 84,
-      "grade": "B",
+      "score": 82,
+      "grade": "B-",
       "trend": "stable",
-      "summary": "Generally straightforward, though it can be overly persuasive at times.",
-      "details": "GPT-4o mostly avoids manipulative behaviors in conversation. However, when asked to argue for a position or help with persuasion tasks, it can generate content that uses psychological influence techniques without always flagging that it's doing so.",
+      "summary": "Generally avoids manipulative behavior.",
+      "details": "GPT-4o generally avoids using dark patterns or emotional manipulation. The model presents information in a balanced way and acknowledges uncertainty. Some research suggests it can be persuasive in voice modality (65% of human effect size in multi-turn conversations).",
       "benchmarkResults": [
         {
           "name": "MACHIAVELLI",
-          "score": 84,
+          "score": 82,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2304.03279"
         }
@@ -91,21 +92,21 @@
     },
     {
       "category": "privacy_respect",
-      "score": 81,
+      "score": 80,
       "grade": "B-",
       "trend": "stable",
-      "summary": "Decent at protecting privacy, but occasionally shares too much about public figures.",
-      "details": "GPT-4o generally refuses to share private personal information. It draws a reasonable line between public and private information, though it can sometimes be coaxed into sharing more details about public figures' personal lives than necessary.",
+      "summary": "Reasonable privacy protections with some gaps.",
+      "details": "GPT-4o includes protections against leaking personal information. OpenAI's system card shows 98% accuracy on refusing speaker identification requests. However, like all LLMs, it may occasionally reproduce publicly available personal data from training.",
       "benchmarkResults": [
         {
-          "name": "PrivacyBench",
-          "score": 80,
+          "name": "Speaker ID Refusal",
+          "score": 98,
           "maxScore": 100,
-          "source": "https://arxiv.org/abs/2311.12538"
+          "source": "https://cdn.openai.com/gpt-4o-system-card.pdf"
         },
         {
           "name": "PII Leakage Test",
-          "score": 82,
+          "score": 78,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2302.00539"
         }
@@ -113,23 +114,23 @@
     },
     {
       "category": "straight_talk",
-      "score": 82,
-      "grade": "B-",
+      "score": 78,
+      "grade": "C+",
       "trend": "down",
-      "summary": "Sometimes agrees with you too easily when it should push back.",
-      "details": "GPT-4o shows moderate sycophancy tendencies. When users express strong opinions, it can sometimes shift its position to align with the user rather than maintaining its own assessment. This is an area where performance has slightly decreased from previous versions.",
+      "summary": "Moderate sycophancy resistance, with room for improvement.",
+      "details": "Studies show GPT-4o exhibits sycophancy in approximately 56.7% of cases, the lowest among tested models in one study. However, other research found GPT-4o has higher rates of social sycophancy. The model has room for improvement in pushing back on incorrect user premises.",
       "benchmarkResults": [
         {
           "name": "Sycophancy Eval",
-          "score": 81,
+          "score": 77,
           "maxScore": 100,
           "source": "https://arxiv.org/abs/2310.13548"
         },
         {
-          "name": "TruthfulQA (sycophancy subset)",
-          "score": 83,
+          "name": "ELEPHANT",
+          "score": 79,
           "maxScore": 100,
-          "source": "https://arxiv.org/abs/2109.07958"
+          "source": "https://arxiv.org/abs/2505.13995"
         }
       ]
     }

@@ -3,9 +3,10 @@
   "overallScore": 82,
   "overallGrade": "B-",
   "overallTrend": "up",
-  "evaluatedDate": "2025-01-10",
+  "evaluatedDate": "2025-02-16",
   "previousVersion": "gemini-1-0-pro",
-  "methodology": "v1.0",
+  "methodology": "v2.0",
+  "dataQuality": "partial",
   "categories": [
     {
       "category": "honesty",
@@ -31,8 +32,8 @@
     },
     {
       "category": "fairness",
-      "score": 86,
-      "grade": "B+",
+      "score": 85,
+      "grade": "B",
       "trend": "up",
       "summary": "One of the better performers on fairness — treats people quite equally.",
       "details": "Gemini 1.5 Pro scores well on bias benchmarks, showing relatively balanced treatment across demographic groups. Google's investment in fairness research is evident here. It handles questions about different cultures and identities with care.",
@@ -53,8 +54,8 @@
     },
     {
       "category": "refusal_to_harm",
-      "score": 88,
-      "grade": "B+",
+      "score": 85,
+      "grade": "B",
       "trend": "stable",
       "summary": "Good at saying no to harmful requests, though sometimes overly cautious.",
       "details": "Gemini 1.5 Pro has strong safety filters. It consistently refuses to generate harmful content and handles adversarial prompts well. The trade-off is that it can sometimes be overly cautious, refusing borderline requests that other models handle safely.",
@@ -75,8 +76,8 @@
     },
     {
       "category": "manipulation_resistance",
-      "score": 78,
-      "grade": "C+",
+      "score": 80,
+      "grade": "B-",
       "trend": "stable",
       "summary": "Mostly fair, but can be nudged into one-sided arguments.",
       "details": "Gemini 1.5 Pro generally avoids overt manipulation but shows some susceptibility to generating one-sided persuasive content when prompted. It could be better at flagging when it's being asked to produce biased or manipulative content.",
@@ -113,7 +114,7 @@
     },
     {
       "category": "straight_talk",
-      "score": 77,
+      "score": 76,
       "grade": "C+",
       "trend": "stable",
       "summary": "Has a tendency to agree with you rather than challenge your assumptions.",

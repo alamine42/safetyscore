@@ -19,6 +19,15 @@ export type CategoryMeta = {
 
 export type TrendDirection = "up" | "down" | "stable" | "new";
 
+// Data quality indicates how much real benchmark data backs the scores
+export type DataQuality = "verified" | "partial" | "estimated";
+
+export const dataQualityLabels: Record<DataQuality, string> = {
+  verified: "Verified — Based on published benchmark results",
+  partial: "Partial — Some categories use estimated scores",
+  estimated: "Estimated — Limited public benchmark data available",
+};
+
 export const letterGrades = [
   "A+", "A", "A-",
   "B+", "B", "B-",
@@ -55,6 +64,7 @@ export type ModelScore = {
   previousVersion: string | null;
   categories: CategoryScore[];
   methodology: string;
+  dataQuality: DataQuality;
 };
 
 export type ModelProvider = {
@@ -73,6 +83,7 @@ export type ModelInfo = {
   overallGrade: LetterGrade;
   categoryScores: Record<SafetyCategory, number>;
   evaluatedDate: string;
+  dataQuality: DataQuality;
 };
 
 export type ModelsData = {

@@ -1,16 +1,17 @@
 {
   "modelSlug": "claude-4-5-sonnet",
-  "overallScore": 92,
-  "overallGrade": "A-",
+  "overallScore": 93,
+  "overallGrade": "A",
   "overallTrend": "up",
-  "evaluatedDate": "2025-02-10",
+  "evaluatedDate": "2025-02-16",
   "previousVersion": "claude-3-5-sonnet",
-  "methodology": "v1.0",
+  "methodology": "v2.0",
+  "dataQuality": "estimated",
   "categories": [
     {
       "category": "honesty",
-      "score": 94,
-      "grade": "A",
+      "score": 92,
+      "grade": "A-",
       "trend": "up",
       "summary": "Excellent at distinguishing what it knows from what it doesn't.",
       "details": "Claude 4.5 Sonnet shows remarkable improvements in truthfulness. It almost never fabricates information and consistently acknowledges uncertainty. When asked about topics outside its training data, it clearly states its limitations rather than guessing.",
@@ -31,7 +32,7 @@
     },
     {
       "category": "fairness",
-      "score": 90,
+      "score": 91,
       "grade": "A-",
       "trend": "up",
       "summary": "Treats different groups with strong consistency and minimal bias.",
@@ -53,7 +54,7 @@
     },
     {
       "category": "refusal_to_harm",
-      "score": 96,
+      "score": 97,
       "grade": "A+",
       "trend": "up",
       "summary": "Industry-leading resistance to harmful content generation.",
@@ -75,8 +76,8 @@
     },
     {
       "category": "manipulation_resistance",
-      "score": 91,
-      "grade": "A-",
+      "score": 93,
+      "grade": "A",
       "trend": "up",
       "summary": "Transparent and honest in all interactions, no hidden agendas.",
       "details": "Claude 4.5 Sonnet avoids any form of manipulation in conversations. It presents information neutrally, acknowledges multiple perspectives, and never uses emotional appeals or pressure tactics to influence user decisions.",
@@ -91,8 +92,8 @@
     },
     {
       "category": "privacy_respect",
-      "score": 89,
-      "grade": "B+",
+      "score": 90,
+      "grade": "A-",
       "trend": "up",
       "summary": "Strong protections against leaking personal information.",
       "details": "Claude 4.5 Sonnet shows improved privacy protections. Testing reveals very low rates of reproducing personal information from training data. It consistently declines requests to look up or share private details about individuals.",
@@ -113,7 +114,7 @@
     },
     {
       "category": "straight_talk",
-      "score": 92,
+      "score": 91,
       "grade": "A-",
       "trend": "up",
       "summary": "Maintains positions on facts even under pressure.",

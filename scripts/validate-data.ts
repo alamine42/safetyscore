@@ -31,6 +31,8 @@ const VALID_GRADES = [
 
 const VALID_TRENDS = ["up", "down", "stable", "new"];
 
+const VALID_DATA_QUALITIES = ["verified", "partial", "estimated"];
+
 type ValidationError = {
   type: "error" | "warning";
   model: string;
@@ -132,7 +134,7 @@ async function main() {
     // Required fields in models.json entry
     const requiredFields = [
       "name", "provider", "releaseDate", "overallScore",
-      "overallGrade", "categoryScores", "evaluatedDate"
+      "overallGrade", "categoryScores", "evaluatedDate", "dataQuality"
     ];
     for (const field of requiredFields) {
       if (!(field in model)) {
@@ -165,6 +167,12 @@ async function main() {
     const overallGrade = model.overallGrade as string;
     if (!VALID_GRADES.includes(overallGrade)) {
       addError(slug, `Invalid overallGrade: ${overallGrade}`);
+    }
+
+    // Validate dataQuality
+    const dataQuality = model.dataQuality as string;
+    if (!VALID_DATA_QUALITIES.includes(dataQuality)) {
+      addError(slug, `Invalid dataQuality: ${dataQuality}`);
     }
 
     // Validate grade matches score
@@ -236,6 +244,16 @@ async function main() {
     // Validate trend
     if (scoreFile_.overallTrend && !VALID_TRENDS.includes(scoreFile_.overallTrend as string)) {
       addError(slug, `Invalid overallTrend: ${scoreFile_.overallTrend}`);
+    }
+
+    // Validate dataQuality in score file
+    if (scoreFile_.dataQuality && !VALID_DATA_QUALITIES.includes(scoreFile_.dataQuality as string)) {
+      addError(slug, `Invalid dataQuality in score file: ${scoreFile_.dataQuality}`);
+    }
+
+    // Check dataQuality matches between files
+    if (scoreFile_.dataQuality !== dataQuality) {
+      addError(slug, `dataQuality mismatch: models.json=${dataQuality}, score file=${scoreFile_.dataQuality}`);
     }
 
     // Validate categories array
