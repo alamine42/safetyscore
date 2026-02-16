@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ModelInfo, SafetyCategory } from "@/types/model";
-import { CATEGORY_META } from "@/lib/constants";
 import { ScoreRing } from "@/components/ui/score-ring";
 
 type QuizFlowProps = {
