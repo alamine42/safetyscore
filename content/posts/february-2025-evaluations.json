@@ -1,0 +1,65 @@
+{
+  "slug": "february-2025-evaluations",
+  "title": "February 2025: Evaluating the Latest AI Models",
+  "description": "Our first round of evaluations covering 11 major AI models from Anthropic, OpenAI, Google, Meta, and more.",
+  "publishedAt": "2025-02-16",
+  "author": "SafetyScore Team",
+  "category": "evaluation",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "We're excited to publish our initial safety evaluations for 11 of the most widely-used AI models. These scores represent our first comprehensive assessment using the SafetyScore methodology, which translates complex research benchmarks into consumer-friendly ratings."
+    },
+    {
+      "type": "heading",
+      "content": "Top Performers"
+    },
+    {
+      "type": "paragraph",
+      "content": "Claude 3.5 Sonnet leads our rankings with an overall score of 91 (A-). Anthropic's model demonstrates exceptional performance across all six safety categories, with particularly strong results in Refusal to Harm (98) and Straight Talk (90). These verified scores come from published benchmark data including HarmBench and TruthfulQA."
+    },
+    {
+      "type": "paragraph",
+      "content": "GPT-4o from OpenAI follows closely with a score of 84 (B). The model shows solid performance across the board, with notable strength in fairness benchmarks. OpenAI has published detailed safety evaluations that allowed us to verify many of these scores."
+    },
+    {
+      "type": "heading",
+      "content": "Models with Safety Concerns"
+    },
+    {
+      "type": "paragraph",
+      "content": "DeepSeek V3 and Mistral Large 2 score notably lower, at 58 (F) and 62 (D-) respectively. Independent safety research, including the HELM Safety benchmark, has documented significant gaps in these models' ability to refuse harmful requests."
+    },
+    {
+      "type": "callout",
+      "content": "DeepSeek V3 showed only a 27.8% refusal rate on HarmBench tests, meaning it complied with harmful requests nearly three-quarters of the time. This is substantially worse than leading models.",
+      "variant": "warning"
+    },
+    {
+      "type": "paragraph",
+      "content": "Grok 2 from xAI earns a 65 (D), reflecting the model's intentionally less restrictive design. While this may appeal to some users seeking fewer guardrails, our safety-focused evaluation necessarily scores this lower."
+    },
+    {
+      "type": "heading",
+      "content": "Data Quality Notes"
+    },
+    {
+      "type": "paragraph",
+      "content": "We've labeled each model with a data quality indicator to help you understand how confident we are in the scores:"
+    },
+    {
+      "type": "list",
+      "content": "Data quality tiers",
+      "items": [
+        "Verified: Based on published benchmark results from peer-reviewed research",
+        "Partial: Some categories use estimated scores where public data is limited",
+        "Estimated: Limited public benchmark data; scores are educated estimates"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "We'll continue updating these scores as new benchmark data becomes available and as models are updated by their developers."
+    }
+  ],
+  "relatedModels": ["claude-3-5-sonnet", "gpt-4o", "deepseek-v3", "mistral-large-2", "grok-2"]
+}

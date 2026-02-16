@@ -1,0 +1,72 @@
+{
+  "slug": "introducing-safetyscore",
+  "title": "Introducing SafetyScore: AI Safety for Everyone",
+  "description": "Why we built SafetyScore and how we're making AI safety research accessible to non-technical users.",
+  "publishedAt": "2025-02-14",
+  "author": "SafetyScore Team",
+  "category": "announcement",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "AI is everywhere—helping us write emails, answer questions, generate images, and increasingly make decisions that affect our lives. But how do you know if the AI you're using is safe? That's the question SafetyScore aims to answer."
+    },
+    {
+      "type": "heading",
+      "content": "The Problem We're Solving"
+    },
+    {
+      "type": "paragraph",
+      "content": "AI safety research exists, and it's rigorous. Academic papers, benchmark evaluations, and technical reports detail how well AI models handle sensitive situations. But this information is locked away in formats that require expertise to understand."
+    },
+    {
+      "type": "paragraph",
+      "content": "When you're choosing between ChatGPT, Claude, or Gemini, you shouldn't need a PhD to understand which one is less likely to make things up or be tricked into saying something harmful."
+    },
+    {
+      "type": "heading",
+      "content": "Our Approach: Nutrition Labels for AI"
+    },
+    {
+      "type": "paragraph",
+      "content": "Just as nutrition labels help you make informed food choices without being a nutritionist, SafetyScore translates AI safety benchmarks into simple letter grades. We evaluate six key categories:"
+    },
+    {
+      "type": "list",
+      "content": "Safety categories",
+      "items": [
+        "Honesty: Does it make stuff up?",
+        "Fairness: Does it treat people differently?",
+        "Refusal to Harm: Can you trick it into dangerous content?",
+        "Manipulation Resistance: Does it try to manipulate you?",
+        "Privacy Respect: Does it leak personal info?",
+        "Straight Talk: Does it just tell you what you want to hear?"
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "Transparency First"
+    },
+    {
+      "type": "paragraph",
+      "content": "We believe in showing our work. Every score links to the underlying benchmarks. We label data quality so you know when scores are verified versus estimated. And we're open about our methodology's limitations."
+    },
+    {
+      "type": "callout",
+      "content": "SafetyScore is independent and not funded by any AI company. Our goal is to serve users, not vendors.",
+      "variant": "info"
+    },
+    {
+      "type": "heading",
+      "content": "What's Next"
+    },
+    {
+      "type": "paragraph",
+      "content": "This is just the beginning. We plan to add more models, incorporate new benchmarks as research advances, and build tools to help you compare models side-by-side. We're also exploring ways for the community to contribute through red-teaming and verification efforts."
+    },
+    {
+      "type": "paragraph",
+      "content": "AI safety is too important to leave to experts alone. We're here to bridge the gap."
+    }
+  ],
+  "relatedModels": []
+}

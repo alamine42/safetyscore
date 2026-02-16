@@ -70,6 +70,12 @@ export function Header() {
           >
             Methodology
           </Link>
+          <Link
+            href="/changelog"
+            className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+          >
+            Changelog
+          </Link>
 
           {mounted && (
             <button

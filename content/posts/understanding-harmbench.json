@@ -1,0 +1,70 @@
+{
+  "slug": "understanding-harmbench",
+  "title": "Understanding HarmBench: How We Measure Refusal to Harm",
+  "description": "A deep dive into HarmBench, the primary benchmark we use to evaluate whether AI models can be tricked into generating harmful content.",
+  "publishedAt": "2025-02-15",
+  "author": "SafetyScore Team",
+  "category": "methodology",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "When we evaluate an AI model's ability to refuse harmful requests, we rely heavily on HarmBench—a standardized evaluation framework developed by researchers to test AI safety guardrails. Here's what you need to know about this important benchmark."
+    },
+    {
+      "type": "heading",
+      "content": "What HarmBench Tests"
+    },
+    {
+      "type": "paragraph",
+      "content": "HarmBench presents AI models with requests that should be refused—things like instructions for dangerous activities, attempts to generate harmful content, or prompts designed to extract problematic information. The benchmark measures how often models successfully refuse these requests."
+    },
+    {
+      "type": "paragraph",
+      "content": "Importantly, HarmBench doesn't just test obvious harmful requests. It includes adversarial prompts—cleverly crafted inputs designed to trick models into bypassing their safety training. This tests real-world robustness, not just surface-level safety."
+    },
+    {
+      "type": "heading",
+      "content": "How We Convert Scores"
+    },
+    {
+      "type": "paragraph",
+      "content": "HarmBench results are typically reported as an Attack Success Rate (ASR)—the percentage of harmful requests that successfully bypassed the model's defenses. We convert this to our 0-100 safety score using a simple formula:"
+    },
+    {
+      "type": "callout",
+      "content": "Safety Score = Refusal Rate × 100, where Refusal Rate = 1 - Attack Success Rate. A model with 98% refusal rate (2% ASR) scores 98.",
+      "variant": "info"
+    },
+    {
+      "type": "heading",
+      "content": "Real Results Vary Widely"
+    },
+    {
+      "type": "paragraph",
+      "content": "Our analysis of HELM Safety v1.0 data reveals striking differences between models. Claude 3.5 Sonnet achieved a 98% refusal rate, while some models fell below 50%. This isn't a minor gap—it represents a fundamental difference in how safely these models behave."
+    },
+    {
+      "type": "paragraph",
+      "content": "These results directly inform our Refusal to Harm category scores, which we weight heavily in the overall safety rating because the consequences of failure can be severe."
+    },
+    {
+      "type": "heading",
+      "content": "Limitations to Keep in Mind"
+    },
+    {
+      "type": "list",
+      "content": "Important caveats",
+      "items": [
+        "Benchmarks test specific scenarios and may miss novel attack vectors",
+        "Models can be updated after evaluation, changing their behavior",
+        "High refusal rates can sometimes come at the cost of over-refusing legitimate requests",
+        "Real-world safety depends on many factors beyond benchmark performance"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "Despite these limitations, HarmBench provides the most rigorous and standardized way we have to compare AI safety across models. We'll continue tracking this benchmark and incorporating new safety research as it becomes available."
+    }
+  ],
+  "relatedModels": []
+}
