@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SafetyScore Forms</title>
+  </head>
+  <body>
+    <!-- Red-team submission form for Netlify Forms detection -->
+    <form name="redteam-report" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="redteam-report" />
+      <input name="model" type="text" />
+      <input name="category" type="text" />
+      <input name="testType" type="text" />
+      <input name="severity" type="text" />
+      <textarea name="description"></textarea>
+      <textarea name="reproductionSteps"></textarea>
+      <textarea name="evidence"></textarea>
+      <input name="platform" type="text" />
+      <input name="modelVersion" type="text" />
+      <input name="contributorName" type="text" />
+      <input name="contributorEmail" type="email" />
+    </form>
+  </body>
+</html>

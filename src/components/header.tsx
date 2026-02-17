@@ -76,6 +76,12 @@ export function Header() {
           >
             Changelog
           </Link>
+          <Link
+            href="/report"
+            className="text-sm font-medium text-red-600 transition-colors hover:text-red-500 dark:text-red-400 dark:hover:text-red-300"
+          >
+            Report
+          </Link>
 
           {mounted && (
             <button
