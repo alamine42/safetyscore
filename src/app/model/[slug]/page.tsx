@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllModelSlugs, getModelBySlug, getModelScore } from "@/lib/data";
 import { NutritionLabel } from "./_components/nutrition-label";
+import { VersionHistory } from "./_components/version-history";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -44,6 +45,10 @@ export default async function ModelPage({ params }: Props) {
       </nav>
 
       <NutritionLabel modelInfo={model} modelScore={score} />
+
+      {score.history && score.history.length >= 2 && (
+        <VersionHistory history={score.history} currentVersion={model.name} />
+      )}
 
       <div className="mt-8 text-center">
         <Link

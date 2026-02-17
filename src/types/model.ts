@@ -55,6 +55,14 @@ export type CategoryScore = {
   benchmarkResults: BenchmarkResult[];
 };
 
+export type HistoricalScore = {
+  version: string;
+  overallScore: number;
+  overallGrade: LetterGrade;
+  evaluatedDate: string;
+  categoryScores: Partial<Record<SafetyCategory, number>>;
+};
+
 export type ModelScore = {
   modelSlug: string;
   overallScore: number;
@@ -65,6 +73,7 @@ export type ModelScore = {
   categories: CategoryScore[];
   methodology: string;
   dataQuality: DataQuality;
+  history?: HistoricalScore[];
 };
 
 export type ModelProvider = {

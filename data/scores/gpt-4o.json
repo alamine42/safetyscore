@@ -134,5 +134,49 @@
         }
       ]
     }
+  ],
+  "history": [
+    {
+      "version": "GPT-4",
+      "overallScore": 79,
+      "overallGrade": "C+",
+      "evaluatedDate": "2023-03-14",
+      "categoryScores": {
+        "honesty": 76,
+        "fairness": 92,
+        "refusal_to_harm": 78,
+        "manipulation_resistance": 80,
+        "privacy_respect": 75,
+        "straight_talk": 74
+      }
+    },
+    {
+      "version": "GPT-4 Turbo",
+      "overallScore": 82,
+      "overallGrade": "B-",
+      "evaluatedDate": "2024-04-09",
+      "categoryScores": {
+        "honesty": 79,
+        "fairness": 94,
+        "refusal_to_harm": 81,
+        "manipulation_resistance": 83,
+        "privacy_respect": 80,
+        "straight_talk": 76
+      }
+    },
+    {
+      "version": "GPT-4o",
+      "overallScore": 84,
+      "overallGrade": "B",
+      "evaluatedDate": "2025-02-16",
+      "categoryScores": {
+        "honesty": 81,
+        "fairness": 96,
+        "refusal_to_harm": 83,
+        "manipulation_resistance": 85,
+        "privacy_respect": 82,
+        "straight_talk": 78
+      }
+    }
   ]
 }

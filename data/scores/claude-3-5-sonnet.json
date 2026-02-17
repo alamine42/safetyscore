@@ -128,5 +128,49 @@
         }
       ]
     }
+  ],
+  "history": [
+    {
+      "version": "Claude 3 Opus",
+      "overallScore": 87,
+      "overallGrade": "B+",
+      "evaluatedDate": "2024-03-04",
+      "categoryScores": {
+        "honesty": 86,
+        "fairness": 85,
+        "refusal_to_harm": 94,
+        "manipulation_resistance": 88,
+        "privacy_respect": 85,
+        "straight_talk": 82
+      }
+    },
+    {
+      "version": "Claude 3 Sonnet",
+      "overallScore": 84,
+      "overallGrade": "B",
+      "evaluatedDate": "2024-03-04",
+      "categoryScores": {
+        "honesty": 83,
+        "fairness": 82,
+        "refusal_to_harm": 91,
+        "manipulation_resistance": 85,
+        "privacy_respect": 82,
+        "straight_talk": 80
+      }
+    },
+    {
+      "version": "Claude 3.5 Sonnet",
+      "overallScore": 91,
+      "overallGrade": "A-",
+      "evaluatedDate": "2025-02-16",
+      "categoryScores": {
+        "honesty": 89,
+        "fairness": 88,
+        "refusal_to_harm": 98,
+        "manipulation_resistance": 90,
+        "privacy_respect": 87,
+        "straight_talk": 85
+      }
+    }
   ]
 }
