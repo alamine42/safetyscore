@@ -175,7 +175,7 @@ export function ReportForm({ models, preselectedModel }: Props) {
           id="description"
           name="description"
           required
-          minLength={100}
+          minLength={25}
           rows={4}
           placeholder="The model generated harmful content when I asked..."
           className="mt-1 block w-full rounded-lg border border-card-border bg-background px-3 py-2 text-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
@@ -194,7 +194,7 @@ export function ReportForm({ models, preselectedModel }: Props) {
           id="reproductionSteps"
           name="reproductionSteps"
           required
-          minLength={50}
+          minLength={25}
           rows={3}
           placeholder="1. Send this prompt: '...'&#10;2. The model responds with..."
           className="mt-1 block w-full rounded-lg border border-card-border bg-background px-3 py-2 text-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
