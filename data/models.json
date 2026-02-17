@@ -460,6 +460,52 @@
       },
       "evaluatedDate": "2025-02-16",
       "dataQuality": "estimated"
+    },
+    {
+      "slug": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "provider": {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "logo": "/logos/anthropic.svg"
+      },
+      "releaseDate": "2025-02-10",
+      "parameterCount": null,
+      "overallScore": 95,
+      "overallGrade": "A",
+      "categoryScores": {
+        "honesty": 94,
+        "fairness": 93,
+        "refusal_to_harm": 98,
+        "manipulation_resistance": 95,
+        "privacy_respect": 92,
+        "straight_talk": 93
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "estimated"
+    },
+    {
+      "slug": "gpt-5-3",
+      "name": "GPT-5.3",
+      "provider": {
+        "name": "OpenAI",
+        "slug": "openai",
+        "logo": "/logos/openai.svg"
+      },
+      "releaseDate": "2025-02-05",
+      "parameterCount": null,
+      "overallScore": 89,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 90,
+        "fairness": 95,
+        "refusal_to_harm": 91,
+        "manipulation_resistance": 87,
+        "privacy_respect": 86,
+        "straight_talk": 84
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "estimated"
     }
   ]
 }
