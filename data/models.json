@@ -253,6 +253,213 @@
       },
       "evaluatedDate": "2025-02-16",
       "dataQuality": "estimated"
+    },
+    {
+      "slug": "claude-3-opus",
+      "name": "Claude 3 Opus",
+      "provider": {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "logo": "/logos/anthropic.svg"
+      },
+      "releaseDate": "2024-03-04",
+      "parameterCount": null,
+      "overallScore": 89,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 88,
+        "fairness": 87,
+        "refusal_to_harm": 95,
+        "manipulation_resistance": 89,
+        "privacy_respect": 86,
+        "straight_talk": 84
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "verified"
+    },
+    {
+      "slug": "claude-3-haiku",
+      "name": "Claude 3 Haiku",
+      "provider": {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "logo": "/logos/anthropic.svg"
+      },
+      "releaseDate": "2024-03-04",
+      "parameterCount": null,
+      "overallScore": 82,
+      "overallGrade": "B-",
+      "categoryScores": {
+        "honesty": 80,
+        "fairness": 81,
+        "refusal_to_harm": 88,
+        "manipulation_resistance": 82,
+        "privacy_respect": 80,
+        "straight_talk": 78
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "partial"
+    },
+    {
+      "slug": "claude-3-5-haiku",
+      "name": "Claude 3.5 Haiku",
+      "provider": {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "logo": "/logos/anthropic.svg"
+      },
+      "releaseDate": "2024-10-29",
+      "parameterCount": null,
+      "overallScore": 85,
+      "overallGrade": "B",
+      "categoryScores": {
+        "honesty": 84,
+        "fairness": 84,
+        "refusal_to_harm": 91,
+        "manipulation_resistance": 84,
+        "privacy_respect": 83,
+        "straight_talk": 81
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "partial"
+    },
+    {
+      "slug": "o1",
+      "name": "o1",
+      "provider": {
+        "name": "OpenAI",
+        "slug": "openai",
+        "logo": "/logos/openai.svg"
+      },
+      "releaseDate": "2024-09-12",
+      "parameterCount": null,
+      "overallScore": 87,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 89,
+        "fairness": 88,
+        "refusal_to_harm": 90,
+        "manipulation_resistance": 86,
+        "privacy_respect": 84,
+        "straight_talk": 82
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "partial"
+    },
+    {
+      "slug": "o1-mini",
+      "name": "o1-mini",
+      "provider": {
+        "name": "OpenAI",
+        "slug": "openai",
+        "logo": "/logos/openai.svg"
+      },
+      "releaseDate": "2024-09-12",
+      "parameterCount": null,
+      "overallScore": 83,
+      "overallGrade": "B",
+      "categoryScores": {
+        "honesty": 84,
+        "fairness": 83,
+        "refusal_to_harm": 86,
+        "manipulation_resistance": 82,
+        "privacy_respect": 81,
+        "straight_talk": 79
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "partial"
+    },
+    {
+      "slug": "gpt-4-turbo",
+      "name": "GPT-4 Turbo",
+      "provider": {
+        "name": "OpenAI",
+        "slug": "openai",
+        "logo": "/logos/openai.svg"
+      },
+      "releaseDate": "2024-04-09",
+      "parameterCount": null,
+      "overallScore": 82,
+      "overallGrade": "B-",
+      "categoryScores": {
+        "honesty": 80,
+        "fairness": 94,
+        "refusal_to_harm": 81,
+        "manipulation_resistance": 82,
+        "privacy_respect": 79,
+        "straight_talk": 76
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "verified"
+    },
+    {
+      "slug": "gemini-2-0-flash",
+      "name": "Gemini 2.0 Flash",
+      "provider": {
+        "name": "Google",
+        "slug": "google",
+        "logo": "/logos/google.svg"
+      },
+      "releaseDate": "2025-01-30",
+      "parameterCount": null,
+      "overallScore": 81,
+      "overallGrade": "B-",
+      "categoryScores": {
+        "honesty": 82,
+        "fairness": 83,
+        "refusal_to_harm": 84,
+        "manipulation_resistance": 79,
+        "privacy_respect": 78,
+        "straight_talk": 75
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "partial"
+    },
+    {
+      "slug": "gemini-1-5-flash",
+      "name": "Gemini 1.5 Flash",
+      "provider": {
+        "name": "Google",
+        "slug": "google",
+        "logo": "/logos/google.svg"
+      },
+      "releaseDate": "2024-05-14",
+      "parameterCount": null,
+      "overallScore": 77,
+      "overallGrade": "C+",
+      "categoryScores": {
+        "honesty": 78,
+        "fairness": 79,
+        "refusal_to_harm": 80,
+        "manipulation_resistance": 76,
+        "privacy_respect": 74,
+        "straight_talk": 73
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "partial"
+    },
+    {
+      "slug": "gemini-2-5-pro",
+      "name": "Gemini 2.5 Pro",
+      "provider": {
+        "name": "Google",
+        "slug": "google",
+        "logo": "/logos/google.svg"
+      },
+      "releaseDate": "2025-02-01",
+      "parameterCount": null,
+      "overallScore": 87,
+      "overallGrade": "B+",
+      "categoryScores": {
+        "honesty": 88,
+        "fairness": 89,
+        "refusal_to_harm": 90,
+        "manipulation_resistance": 85,
+        "privacy_respect": 84,
+        "straight_talk": 82
+      },
+      "evaluatedDate": "2025-02-16",
+      "dataQuality": "estimated"
     }
   ]
 }
