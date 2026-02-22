@@ -11,6 +11,10 @@ import path from "path";
 const DATA_DIR = path.join(process.cwd(), "data");
 const MODELS_FILE = path.join(DATA_DIR, "models.json");
 const SCORES_DIR = path.join(DATA_DIR, "scores");
+const PARENTBENCH_DIR = path.join(DATA_DIR, "parentbench");
+const PARENTBENCH_SCORES_FILE = path.join(PARENTBENCH_DIR, "scores.json");
+const PARENTBENCH_TESTCASES_FILE = path.join(PARENTBENCH_DIR, "test-cases.json");
+const PARENTBENCH_METHODOLOGY_FILE = path.join(PARENTBENCH_DIR, "methodology.json");
 
 const SAFETY_CATEGORIES = [
   "honesty",
@@ -32,6 +36,16 @@ const VALID_GRADES = [
 const VALID_TRENDS = ["up", "down", "stable", "new"];
 
 const VALID_DATA_QUALITIES = ["verified", "partial", "estimated"];
+
+const PARENTBENCH_CATEGORIES = [
+  "age_inappropriate_content",
+  "manipulation_resistance",
+  "data_privacy_minors",
+  "parental_controls_respect",
+] as const;
+
+const VALID_EXPECTED_BEHAVIORS = ["refuse", "safe_response", "redirect"];
+const VALID_SEVERITIES = ["critical", "high", "medium"];
 
 type ValidationError = {
   type: "error" | "warning";
@@ -87,6 +101,229 @@ function validateScoreFile(data: unknown, slug: string): data is Record<string, 
     return false;
   }
   return true;
+}
+
+function validateParentBenchData(modelSlugs: Set<string>) {
+  // Track ParentBench model slugs for cross-reference
+  const parentBenchSlugs = new Set<string>();
+
+  // Validate scores.json
+  console.log("Checking parentbench/scores.json...");
+  if (!fs.existsSync(PARENTBENCH_SCORES_FILE)) {
+    addError("parentbench", "scores.json not found");
+  } else {
+    try {
+      const scoresRaw = fs.readFileSync(PARENTBENCH_SCORES_FILE, "utf-8");
+      const scoresData = JSON.parse(scoresRaw) as { lastUpdated: string; results: unknown[] };
+
+      if (!scoresData.lastUpdated) {
+        addError("parentbench/scores", "Missing lastUpdated field");
+      }
+
+      if (!Array.isArray(scoresData.results)) {
+        addError("parentbench/scores", "results must be an array");
+      } else {
+        for (let i = 0; i < scoresData.results.length; i++) {
+          const result = scoresData.results[i] as Record<string, unknown>;
+          const slug = result.modelSlug as string;
+
+          if (!slug) {
+            addError(`parentbench/scores[${i}]`, "Missing modelSlug");
+            continue;
+          }
+
+          parentBenchSlugs.add(slug);
+
+          // Check model exists in models.json
+          if (!modelSlugs.has(slug)) {
+            addError(`parentbench/scores/${slug}`, "Model not found in models.json");
+          }
+
+          // Validate overall score
+          const overallScore = result.overallScore as number;
+          if (typeof overallScore !== "number" || overallScore < 0 || overallScore > 100) {
+            addError(`parentbench/scores/${slug}`, `Invalid overallScore: ${overallScore}`);
+          }
+
+          // Validate overall grade
+          const overallGrade = result.overallGrade as string;
+          if (!VALID_GRADES.includes(overallGrade)) {
+            addError(`parentbench/scores/${slug}`, `Invalid overallGrade: ${overallGrade}`);
+          }
+
+          // Validate grade matches score
+          const expectedGrade = scoreToExpectedGrade(overallScore);
+          if (overallGrade !== expectedGrade) {
+            addWarning(`parentbench/scores/${slug}`, `Grade mismatch: got ${overallGrade}, expected ${expectedGrade} for score ${overallScore}`);
+          }
+
+          // Validate categoryScores
+          const categoryScores = result.categoryScores as unknown[];
+          if (!Array.isArray(categoryScores)) {
+            addError(`parentbench/scores/${slug}`, "categoryScores must be an array");
+          } else {
+            if (categoryScores.length !== PARENTBENCH_CATEGORIES.length) {
+              addError(`parentbench/scores/${slug}`, `Expected ${PARENTBENCH_CATEGORIES.length} category scores, got ${categoryScores.length}`);
+            }
+
+            const foundCategories = new Set<string>();
+            for (const catScore of categoryScores) {
+              const cat = catScore as Record<string, unknown>;
+              const category = cat.category as string;
+
+              if (!PARENTBENCH_CATEGORIES.includes(category as typeof PARENTBENCH_CATEGORIES[number])) {
+                addError(`parentbench/scores/${slug}`, `Invalid category: ${category}`);
+              } else {
+                foundCategories.add(category);
+              }
+
+              const score = cat.score as number;
+              if (typeof score !== "number" || score < 0 || score > 100) {
+                addError(`parentbench/scores/${slug}`, `Invalid ${category} score: ${score}`);
+              }
+
+              if (!VALID_GRADES.includes(cat.grade as string)) {
+                addError(`parentbench/scores/${slug}`, `Invalid ${category} grade: ${cat.grade}`);
+              }
+            }
+
+            // Check all categories present
+            for (const expectedCat of PARENTBENCH_CATEGORIES) {
+              if (!foundCategories.has(expectedCat)) {
+                addError(`parentbench/scores/${slug}`, `Missing category: ${expectedCat}`);
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      addError("parentbench/scores", `Failed to parse scores.json: ${e}`);
+    }
+  }
+
+  // Validate test-cases.json
+  console.log("Checking parentbench/test-cases.json...");
+  if (!fs.existsSync(PARENTBENCH_TESTCASES_FILE)) {
+    addError("parentbench", "test-cases.json not found");
+  } else {
+    try {
+      const testCasesRaw = fs.readFileSync(PARENTBENCH_TESTCASES_FILE, "utf-8");
+      const testCasesData = JSON.parse(testCasesRaw) as { version: string; lastUpdated: string; testCases: unknown[] };
+
+      if (!testCasesData.version) {
+        addError("parentbench/test-cases", "Missing version field");
+      }
+
+      if (!testCasesData.lastUpdated) {
+        addError("parentbench/test-cases", "Missing lastUpdated field");
+      }
+
+      if (!Array.isArray(testCasesData.testCases)) {
+        addError("parentbench/test-cases", "testCases must be an array");
+      } else {
+        const seenIds = new Set<string>();
+
+        for (let i = 0; i < testCasesData.testCases.length; i++) {
+          const tc = testCasesData.testCases[i] as Record<string, unknown>;
+
+          // Check for duplicate IDs
+          const id = tc.id as string;
+          if (!id) {
+            addError(`parentbench/test-cases[${i}]`, "Missing id");
+          } else if (seenIds.has(id)) {
+            addError(`parentbench/test-cases/${id}`, "Duplicate test case ID");
+          } else {
+            seenIds.add(id);
+          }
+
+          // Validate required fields
+          if (!tc.category) {
+            addError(`parentbench/test-cases/${id || i}`, "Missing category");
+          } else if (!PARENTBENCH_CATEGORIES.includes(tc.category as typeof PARENTBENCH_CATEGORIES[number])) {
+            addError(`parentbench/test-cases/${id || i}`, `Invalid category: ${tc.category}`);
+          }
+
+          if (!tc.prompt || typeof tc.prompt !== "string") {
+            addError(`parentbench/test-cases/${id || i}`, "Missing or invalid prompt");
+          }
+
+          if (!tc.expectedBehavior) {
+            addError(`parentbench/test-cases/${id || i}`, "Missing expectedBehavior");
+          } else if (!VALID_EXPECTED_BEHAVIORS.includes(tc.expectedBehavior as string)) {
+            addError(`parentbench/test-cases/${id || i}`, `Invalid expectedBehavior: ${tc.expectedBehavior}`);
+          }
+
+          if (!tc.severity) {
+            addError(`parentbench/test-cases/${id || i}`, "Missing severity");
+          } else if (!VALID_SEVERITIES.includes(tc.severity as string)) {
+            addError(`parentbench/test-cases/${id || i}`, `Invalid severity: ${tc.severity}`);
+          }
+
+          if (!tc.description || typeof tc.description !== "string") {
+            addError(`parentbench/test-cases/${id || i}`, "Missing or invalid description");
+          }
+        }
+      }
+    } catch (e) {
+      addError("parentbench/test-cases", `Failed to parse test-cases.json: ${e}`);
+    }
+  }
+
+  // Validate methodology.json
+  console.log("Checking parentbench/methodology.json...");
+  if (!fs.existsSync(PARENTBENCH_METHODOLOGY_FILE)) {
+    addError("parentbench", "methodology.json not found");
+  } else {
+    try {
+      const methodologyRaw = fs.readFileSync(PARENTBENCH_METHODOLOGY_FILE, "utf-8");
+      const methodology = JSON.parse(methodologyRaw) as Record<string, unknown>;
+
+      const requiredFields = ["version", "name", "description", "categoryWeights", "testCaseCounts", "scoringApproach", "limitations", "lastUpdated"];
+      for (const field of requiredFields) {
+        if (!(field in methodology)) {
+          addError("parentbench/methodology", `Missing required field: ${field}`);
+        }
+      }
+
+      // Validate categoryWeights
+      const weights = methodology.categoryWeights as Record<string, number>;
+      if (weights) {
+        let sum = 0;
+        for (const cat of PARENTBENCH_CATEGORIES) {
+          if (!(cat in weights)) {
+            addError("parentbench/methodology", `Missing weight for category: ${cat}`);
+          } else {
+            sum += weights[cat];
+          }
+        }
+        if (Math.abs(sum - 1.0) > 0.01) {
+          addWarning("parentbench/methodology", `Category weights sum to ${sum}, expected 1.0`);
+        }
+      }
+
+      // Validate testCaseCounts
+      const counts = methodology.testCaseCounts as Record<string, number>;
+      if (counts) {
+        for (const cat of PARENTBENCH_CATEGORIES) {
+          if (!(cat in counts)) {
+            addError("parentbench/methodology", `Missing test case count for category: ${cat}`);
+          } else if (counts[cat] <= 0) {
+            addError("parentbench/methodology", `Invalid test case count for ${cat}: ${counts[cat]}`);
+          }
+        }
+      }
+    } catch (e) {
+      addError("parentbench/methodology", `Failed to parse methodology.json: ${e}`);
+    }
+  }
+
+  // Cross-reference: every model should have a ParentBench entry
+  console.log("Cross-referencing models with ParentBench scores...");
+  for (const slug of modelSlugs) {
+    if (!parentBenchSlugs.has(slug)) {
+      addWarning(`parentbench/cross-ref`, `Model ${slug} has no ParentBench score`);
+    }
+  }
 }
 
 async function main() {
@@ -323,6 +560,13 @@ async function main() {
       addWarning("(orphan)", `Score file not referenced in models.json: ${file}`);
     }
   }
+
+  // Validate ParentBench data
+  console.log("\n📊 Validating ParentBench data...\n");
+  const modelSlugs = new Set(
+    (modelsData.models as Array<{ slug: string }>).map((m) => m.slug)
+  );
+  validateParentBenchData(modelSlugs);
 
   // Report results
   console.log("\n" + "=".repeat(50) + "\n");
