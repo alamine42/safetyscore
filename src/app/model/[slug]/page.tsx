@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllModelSlugs, getModelBySlug, getModelScore } from "@/lib/data";
+import {
+  getParentBenchScoreBySlug,
+  computeParentBenchRank,
+  getParentBenchModelCount,
+} from "@/lib/parentbench";
 import { NutritionLabel } from "./_components/nutrition-label";
 import { VersionHistory } from "./_components/version-history";
+import { ParentBenchBadge } from "./_components/parentbench-badge";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -26,10 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ModelPage({ params }: Props) {
   const { slug } = await params;
-  const [model, score] = await Promise.all([
-    getModelBySlug(slug),
-    getModelScore(slug),
-  ]);
+  const [model, score, parentBenchResult, parentBenchRank, parentBenchTotal] =
+    await Promise.all([
+      getModelBySlug(slug),
+      getModelScore(slug),
+      getParentBenchScoreBySlug(slug),
+      computeParentBenchRank(slug),
+      getParentBenchModelCount(),
+    ]);
 
   if (!model || !score) notFound();
 
@@ -45,6 +55,12 @@ export default async function ModelPage({ params }: Props) {
       </nav>
 
       <NutritionLabel modelInfo={model} modelScore={score} />
+
+      <ParentBenchBadge
+        result={parentBenchResult}
+        rank={parentBenchRank}
+        totalModels={parentBenchTotal}
+      />
 
       {score.history && score.history.length >= 2 && (
         <VersionHistory history={score.history} currentVersion={model.name} />

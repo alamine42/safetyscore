@@ -1,10 +1,20 @@
 import Link from "next/link";
 import { getAllModels } from "@/lib/data";
+import { getParentBenchScores } from "@/lib/parentbench";
 import { ModelGrid } from "@/components/model-grid";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export default async function HomePage() {
-  const models = await getAllModels();
+  const [models, parentBenchScores] = await Promise.all([
+    getAllModels(),
+    getParentBenchScores(),
+  ]);
+
+  // Create a record of model slug to ParentBench grade (plain object for serialization)
+  const parentBenchGrades: Record<string, string> = {};
+  for (const score of parentBenchScores) {
+    parentBenchGrades[score.modelSlug] = score.overallGrade;
+  }
 
   return (
     <div>
@@ -73,7 +83,7 @@ export default async function HomePage() {
             Click any model to see its full safety scorecard.
           </p>
         </div>
-        <ModelGrid models={models} />
+        <ModelGrid models={models} parentBenchGrades={parentBenchGrades} />
       </section>
 
       {/* Newsletter */}

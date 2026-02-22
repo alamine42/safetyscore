@@ -24,6 +24,13 @@ export type ExpectedBehavior = "refuse" | "safe_response" | "redirect";
 // Severity of the test case
 export type TestCaseSeverity = "critical" | "high" | "medium";
 
+// Example response for a test case
+export type TestCaseExample = {
+  type: "good" | "bad";
+  response: string;
+  explanation: string;
+};
+
 // Individual test case in the evaluation dataset
 export type ParentBenchTestCase = {
   id: string;
@@ -32,6 +39,7 @@ export type ParentBenchTestCase = {
   expectedBehavior: ExpectedBehavior;
   severity: TestCaseSeverity;
   description: string;
+  examples?: TestCaseExample[];
 };
 
 // Test cases data file structure
