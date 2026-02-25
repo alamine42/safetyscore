@@ -5,31 +5,36 @@
 import { ModelConfig } from './types';
 
 export const MODEL_REGISTRY: Record<string, ModelConfig> = {
-  // Anthropic Models
-  'claude-opus-4-6': {
+  // Anthropic Models (using latest aliases where available)
+  'claude-opus-4-5': {
     provider: 'anthropic',
-    model: 'claude-opus-4-6-20260101',
-    displayName: 'Claude Opus 4.6',
+    model: 'claude-opus-4-5-20251101',
+    displayName: 'Claude Opus 4.5',
   },
-  'claude-4-5-sonnet': {
+  'claude-sonnet-4-5': {
     provider: 'anthropic',
-    model: 'claude-sonnet-4-5-20260101',
-    displayName: 'Claude 4.5 Sonnet',
+    model: 'claude-sonnet-4-5-20251101',
+    displayName: 'Claude Sonnet 4.5',
   },
   'claude-3-5-sonnet': {
     provider: 'anthropic',
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-latest',
     displayName: 'Claude 3.5 Sonnet',
   },
   'claude-3-5-haiku': {
     provider: 'anthropic',
-    model: 'claude-3-5-haiku-20241022',
+    model: 'claude-3-5-haiku-latest',
     displayName: 'Claude 3.5 Haiku',
   },
   'claude-3-opus': {
     provider: 'anthropic',
-    model: 'claude-3-opus-20240229',
+    model: 'claude-3-opus-latest',
     displayName: 'Claude 3 Opus',
+  },
+  'claude-3-haiku': {
+    provider: 'anthropic',
+    model: 'claude-3-haiku-20240307',
+    displayName: 'Claude 3 Haiku',
   },
 
   // OpenAI Models

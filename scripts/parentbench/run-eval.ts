@@ -9,6 +9,9 @@
  *   npm run parentbench:eval --dry-run           # Preview without API calls
  */
 
+import { config } from 'dotenv';
+config({ path: '.env.local' });
+
 import { createAdapter, getAllModelSlugs, checkAvailableProviders, getModelConfig } from './adapters';
 import {
   TestCase,
