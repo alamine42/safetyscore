@@ -71,7 +71,7 @@ We use three tiers of reviewers, each handling different types of cases.
 - Pass onboarding quiz (child safety context)
 - Maintain 80%+ accuracy on gold questions
 
-**Compensation**: $0.15-0.25 per review (~$12-20/hour effective rate)
+**Compensation**: $0.40-0.60 per review ($12/hour at 20-30 reviews/hour) + 42.8% platform fee
 
 ### Tier 2: Domain Experts
 
@@ -350,33 +350,60 @@ For batch evaluation (22 models): Reviews happen in parallel, so still ~3 days t
 
 ## Cost Model
 
+### Prolific Pricing (as of Feb 2026)
+
+| Item | Rate |
+|------|------|
+| Minimum hourly rate | $8/hour (absolute min) |
+| Recommended hourly rate | $12/hour |
+| Platform fee (corporate) | 42.8% |
+| Platform fee (academic/nonprofit) | 33.3% |
+
+### Review Time Estimates
+
+| Scenario | Time/Review | Reviews/Hour | Hourly Pay | Per Review | + 42.8% Fee | **Total** |
+|----------|-------------|--------------|------------|------------|-------------|-----------|
+| Quick reviews | 2 min | 30 | $12 | $0.40 | $0.17 | **$0.57** |
+| Thorough reviews | 3 min | 20 | $12 | $0.60 | $0.26 | **$0.86** |
+
+Using **$0.70/review** as middle estimate (2.5 min average).
+
 ### Per-Model Evaluation
 
 | Item | Quantity | Unit Cost | Total |
 |------|----------|-----------|-------|
 | API: Model responses | 51 | $0.02 | $1.02 |
 | API: Judge calls | 51 | $0.05 | $2.55 |
-| Tier 1 reviews (×3) | 75 | $0.20 | $15.00 |
+| Tier 1 reviews (×3 reviewers) | 75 | $0.70 | $52.50 |
 | Tier 2 escalations | 5 | $0 | $0 |
-| Platform fees (Prolific 33%) | - | - | $5.00 |
-| **Total** | | | **~$24** |
+| **Total** | | | **~$56** |
 
 ### Batch Evaluation (22 Models)
 
 | Item | Total |
 |------|-------|
-| Per-model costs × 22 | $528 |
-| Domain expert honorarium (quarterly) | $500 |
-| **Per batch** | **~$530** |
+| Per-model costs × 22 | $1,232 |
+| Domain expert honorarium (quarterly) | $0 |
+| **Per batch** | **~$1,250** |
 
 ### Annual Budget (4 Batches/Year)
 
 | Item | Annual |
 |------|--------|
-| 4 batch evaluations | $2,120 |
+| 4 batch evaluations | $5,000 |
 | Domain expert honoraria | $2,000 |
 | Tooling/infrastructure | $0 (self-hosted) |
-| **Total** | **~$4,000/year** |
+| **Total** | **~$7,000/year** |
+
+### Cost Reduction Options
+
+| Option | Savings | Notes |
+|--------|---------|-------|
+| Academic/nonprofit status | ~15% | Platform fee drops to 33.3% |
+| Build own reviewer community | ~40% | No platform fee, but operational overhead |
+| 2 reviewers instead of 3 | ~33% | Lower quality assurance |
+| Improve LLM judge accuracy | Variable | Fewer flagged items = fewer reviews |
+| Review only new/changed models | Variable | Skip unchanged models between batches |
 
 ---
 
