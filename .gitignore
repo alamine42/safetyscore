@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# handover
+HANDOVER.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# debug artifacts
+investigation.md
+test-results/
