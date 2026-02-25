@@ -12,7 +12,13 @@
     "test:run": "vitest run",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "validate": "tsx scripts/validate-data.ts"
+    "validate": "tsx scripts/validate-data.ts",
+    "parentbench:eval": "tsx scripts/parentbench/run-eval.ts",
+    "parentbench:review": "tsx scripts/parentbench/review.ts",
+    "parentbench:score": "tsx scripts/parentbench/score.ts",
+    "parentbench:calibrate": "tsx scripts/parentbench/calibrate.ts",
+    "parentbench:runs": "tsx scripts/parentbench/runs.ts",
+    "parentbench:validate": "tsx scripts/parentbench/runs.ts --validate"
   },
   "dependencies": {
     "next": "^15.5.12",
